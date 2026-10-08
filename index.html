@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PathPilot — Three Futures. One Student.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a" aria-hidden="true"></div>
+  <div class="bg-orb orb-b" aria-hidden="true"></div>
+  <div class="bg-orb orb-c" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button type="button" class="brand" id="brandBtn" aria-label="Go to home">
+      <span class="brand-mark">PP</span>
+      <span>PathPilot</span>
+    </button>
+    <nav class="top-actions">
+      <button type="button" class="ghost-btn hidden" id="startOverBtn">↺ Start Over</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="landingView" class="view active" aria-label="Landing">
+      <div class="hero">
+        <p class="eyebrow">Career Path Simulator</p>
+        <h1>PathPilot</h1>
+        <p class="tagline">Three Futures. One Student.</p>
+        <p class="lede">
+          Enter your skills, interests, and year of study. PathPilot simulates three realistic tech careers,
+          scores how well each one fits you, and maps the projects, milestones, and first 30 days that get you there.
+        </p>
+        <button type="button" class="primary-btn" id="startJourneyBtn">Start Your Journey →</button>
+        <ul class="hero-points">
+          <li>🎯 Match scores from your profile</li>
+          <li>🛠️ Skill gaps &amp; project ideas</li>
+          <li>📅 Year-by-year college roadmap</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="formView" class="view" aria-label="Student profile">
+      <div class="panel">
+        <h2>Build your student profile</h2>
+        <p class="panel-sub">Tell PathPilot who you are. We use this to score Full Stack, Data Engineering, and AI/ML paths.</p>
+
+        <form id="profileForm" novalidate>
+          <label>
+            Student name
+            <input type="text" id="studentName" name="studentName" placeholder="e.g. Aanya Sharma" required maxlength="80" autocomplete="name">
+          </label>
+
+          <label>
+            Current year
+            <select id="currentYear" name="currentYear" required>
+              <option value="">Select year</option>
+              <option value="1">1st year</option>
+              <option value="2">2nd year</option>
+              <option value="3">3rd year</option>
+              <option value="4">4th year</option>
+            </select>
+          </label>
+
+          <label>
+            Skills <span class="hint">(comma separated)</span>
+            <textarea id="skills" name="skills" rows="3" required placeholder="e.g. Python, HTML, CSS, SQL, Git"></textarea>
+          </label>
+
+          <label>
+            Interests <span class="hint">(comma separated)</span>
+            <textarea id="interests" name="interests" rows="3" required placeholder="e.g. Web development, AI, data visualization"></textarea>
+          </label>
+
+          <label>
+            Preferred area / domain
+            <input type="text" id="domain" name="domain" required placeholder="e.g. Software, Data, AI, Web" maxlength="80">
+          </label>
+
+          <p id="formError" class="form-error" role="alert" hidden></p>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-btn">Simulate My Careers</button>
+            <button type="button" class="secondary-btn" id="demoBtn">Try Demo Profile</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="resultsView" class="view" aria-label="Career simulation results">
+      <div class="results-intro">
+        <p class="eyebrow" id="resultsEyebrow">Simulation ready</p>
+        <h2 id="resultsTitle">Your three futures</h2>
+        <p class="panel-sub" id="resultsSub"></p>
+      </div>
+
+      <div id="careerCards" class="card-grid"></div>
+
+      <div class="panel compare-panel">
+        <h3>📊 Career comparison</h3>
+        <p class="panel-sub">A side-by-side look at match, difficulty, skills, projects, and direction.</p>
+        <div class="table-wrap">
+          <table id="compareTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="detailView" class="view" aria-label="Career path details">
+      <button type="button" class="text-btn" id="backToResultsBtn">← Back to all paths</button>
+      <div id="detailContent"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>PathPilot · Hackathon MVP · Runs fully in your browser</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
